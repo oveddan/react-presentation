@@ -92,17 +92,22 @@ export default class Presentation extends React.Component {
           </Text>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary">
-          <Heading size={2} textColor="primary" caps>
-            What is React?
+          <Heading size={2} textColor="primary">
+            React
           </Heading>
-          <List>
-            <ListItem>Is an application framework</ListItem>
-            <ListItem>Declarative</ListItem>
-            <ListItem>Component based</ListItem>
-            <ListItem>Uni-directional data flow</ListItem>
-            <ListItem>Fast and scales well</ListItem>
-            <ListItem>JSX and Virtual Dom</ListItem>
-          </List>
+          <Heading size={4} textColor="secondary" fit>
+            A javascript library for building user interfaces
+          </Heading>
+        </Slide>
+        <Slide transition={['fade']} bgColor="secondary">
+          <Heading size={4} textColor="primary" fit>jQuery is <strong>imperative</strong> (How to do something)</Heading>
+          <Heading size={2} textColor="tertiary" fit>React is <strong>declarative</strong> (What to do)</Heading>
+        </Slide>
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={2} textColor="secondary" fit>
+            React is Component Based
+          </Heading>
+          <Image src='component-based.png' />
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary">
           <Heading size={4} textColor="primary" caps>Who uses it?</Heading>
@@ -129,6 +134,10 @@ export default class Presentation extends React.Component {
             <ListItem>Maps (Uber's react-map-gl)</ListItem>
           </List>
         </Slide>
+        <Slide transition={['fade']} bgColor="secondary">
+          <Heading size={6}  textColor="primary" fit>formidable.com/open-source/victory/</Heading>
+          <Image src='Visualizations.png' />
+        </Slide>
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={1} textColor="secondary">Project demos</Heading>
         </Slide>
@@ -137,138 +146,11 @@ export default class Presentation extends React.Component {
           <Text size={1} fit textColor="primary">StackOverflow report - Developer Hiring Trends in 2017</Text>
         </Slide>
         <Slide transition={['fade']} bgColor="primary" textColor="primary">
-          <Heading size={4}>Hello World</Heading>
-          <CodePane
-            lang="jsx"
-            source={HelloWorld}
-            overflow = "overflow"
-          />
-        </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="primary">
-          <Heading size={6}>Introducing JSX</Heading>
-          <CodePane
-            lang="jsx"
-            source="const element = <h1>Hello, world!</h1>;"
-            style={{margin: "20px 0", fontSize: '0.6em'}}
-            overflow = "overflow"
-          />
-        </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="primary">
-          <Heading size={6}>Embedding Expressions</Heading>
-          <Link href='https://reactjs.org/redirect-to-codepen/introducing-jsx' target="_blank">
-            <CodePane
-              lang="jsx"
-              style={{margin: "20px 0", fontSize: '0.5em'}}
-              source={EmbeddingExpressions}
-              overflow = "overflow"
-            />
-          </Link>
-        </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="primary">
-          <Heading size={6}>Jsx is an Expression Too</Heading>
-          <CodePane
-            lang="jsx"
-            style={{margin: "20px 0", fontSize: '0.6em'}}
-            source={JsxIsExpression}
-            overflow = "overflow"
-          />
-        </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="primary">
-          <Heading size={4}>Updating a rendered element</Heading>
-          <List>
-            <ListItem><Link href='https://reactjs.org/redirect-to-codepen/rendering-elements/update-rendered-element'>Basic update example</Link></ListItem>
-          </List>
-        </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="primary">
-          <Heading size={1}>Components and Props</Heading>
-        </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="primary">
-          <Heading size={4}>Components</Heading>
-          <Heading size={6}>Functional:</Heading>
-          <CodePane
-            lang="jsx"
-            style={{margin: "20px 0", fontSize: '0.6em'}}
-            source={`function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
-}`
-            }
-            overflow = "overflow"
-          />
-          <Heading size={6}>Class:</Heading>
-          <CodePane
-            lang="jsx"
-            style={{margin: "20px 0", fontSize: '0.6em'}}
-            source={`class Welcome extends React.Component {
-  render() {
-    return <h1>Hello, {this.props.name}</h1>;
-  }
-}`
-            }
-            overflow = "overflow"
-          />
-        </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="primary">
-          <Heading size={4}>Rendering Components</Heading>
-          <CodePane
-            lang="jsx"
-            style={{margin: "20px 0", fontSize: '0.6em'}}
-            source={`function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
-}
-
-const element = <Welcome name="Sara" />;
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);`
-            }
-            overflow = "overflow"
-          />
-          <Link href='https://reactjs.org/redirect-to-codepen/components-and-props/rendering-a-component'>Try on Codepen, and Compose App with List of Welcomes</Link>
-
-        </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="primary">
-          <Heading size={4}>Extracting Components</Heading>
-          <CodePane
-            lang="jsx"
-            style={{margin: "20px 0", fontSize: '0.6em'}}
-            source={`function Comment(props) {
-  return (
-    <div className="Comment">
-      <div className="UserInfo">
-        <img className="Avatar"
-          src={props.author.avatarUrl}
-          alt={props.author.name}
-        />
-        <div className="UserInfo-name">
-          {props.author.name}
-        </div>
-      </div>
-      <div className="Comment-text">
-        {props.text}
-      </div>
-      <div className="Comment-date">
-        {formatDate(props.date)}
-      </div>
-    </div>
-  );
-}`
-            }
-            overflow = "overflow"
-          />
-          <Link href='https://reactjs.org/redirect-to-codepen/components-and-props/extracting-components'>Let's do a live component extraction demo</Link>
+          <Heading size={1} fit>Time for In-Class Coding Examples</Heading>
+          <Link href="http://codesandbox.io/s/new">codesandbox.io/s/new</Link>
         </Slide>
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
-          <Heading size={3} textColor="tertiary">Props are <strong>Read-Only</strong></Heading>
-          <Heading size={4} textColor="primary">Never modify them in a child component</Heading>
-        </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="primary">
-          <Heading size={4}>State and Props</Heading>
-          <Link href='http://codepen.io/gaearon/pen/gwoJZk?editors=0010'>Let's convert this clock to do it the React way</Link>
-        </Slide>
-        <Slide transition={['fade']} bgColor="primary" textColor="primary">
-          <Heading size={4}>Handling Events</Heading>
-          <Heading size={2}>This is where I left off</Heading>
+          <Heading size={1}>Lets build a real react app</Heading>
         </Slide>
       </Deck>
     );
